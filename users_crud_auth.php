@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Azure SQL 接続情報
-$serverName = "nakaema.database.windows.net"; // Azure SQL サーバ名
+$serverName = "west-db.database.windows.net"; // Azure SQL サーバ名
 $connectionOptions = [
     "Database" => "Azure-db-east",
     "Uid" => "webapp",
