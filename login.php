@@ -24,7 +24,7 @@ if (isset($_POST['name'], $_POST['password'])) {
     $pass = $_POST['password'];
 
     // パラメータ化クエリで SQL インジェクション防止
-    $tsql = "SELECT * FROM accounts WHERE username = ?";
+    $tsql = "SELECT * FROM accounts WHERE name = ?";
     $params = [$user];
     $stmt = sqlsrv_query($conn, $tsql, $params);
 
@@ -63,7 +63,7 @@ sqlsrv_close($conn);
     <?php if ($error) echo "<div class='alert alert-danger'>$error</div>"; ?>
     <form method="post" class="mb-3">
         <div class="mb-3">
-            <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <input type="text" name="name" class="form-control" placeholder="name" required>
         </div>
         <div class="mb-3">
             <input type="password" name="password" class="form-control" placeholder="Password" required>
