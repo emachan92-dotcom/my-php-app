@@ -19,8 +19,8 @@ if ($conn === false) {
 }
 
 $error = '';
-if (isset($_POST['username'], $_POST['password'])) {
-    $user = $_POST['username'];
+if (isset($_POST['name'], $_POST['password'])) {
+    $user = $_POST['name'];
     $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // 既存ユーザ確認
@@ -45,7 +45,7 @@ if (isset($_POST['username'], $_POST['password'])) {
         }
 
         // 自動ログイン
-        $_SESSION['username'] = $user;
+        $_SESSION['name'] = $user;
         header("Location: users_crud_auth.php");
         exit();
     }
