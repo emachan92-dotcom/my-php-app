@@ -19,8 +19,8 @@ if ($conn === false) {
 }
 
 $error = '';
-if (isset($_POST['username'], $_POST['password'])) {
-    $user = $_POST['username'];
+if (isset($_POST['name'], $_POST['password'])) {
+    $user = $_POST['name'];
     $pass = $_POST['password'];
 
     // パラメータ化クエリで SQL インジェクション防止
@@ -35,7 +35,7 @@ if (isset($_POST['username'], $_POST['password'])) {
     if (sqlsrv_has_rows($stmt)) {
         $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
         if (password_verify($pass, $row['password_hash'])) {
-            $_SESSION['username'] = $user;
+            $_SESSION['name'] = $user;
             header("Location: users_crud_auth.php");
             exit();
         } else {
