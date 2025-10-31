@@ -2,7 +2,7 @@
 session_start();
 
 // Azure SQL 接続情報
-$serverName = "west-db.database.windows.net"; // Azure SQL サーバー名
+$serverName = "east-db.database.windows.net"; // Azure SQL サーバー名
 $connectionOptions = [
     "Database" => "Azure-db-east",           // データベース名
     "Uid"      => "webapp",                  // SQL 認証ユーザ
