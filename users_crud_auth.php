@@ -9,7 +9,7 @@ if (!isset($_SESSION['name'])) {
 $serverName = "nakaema.database.windows.net"; // Azure SQL サーバ名
 $connectionOptions = [
     "Database" => "Azure-db-east",
-    "Uid" => "webapp@nakaema",
+    "Uid" => "webapp",
     "PWD" => "Nakaema202510",
     "Encrypt" => true,
     "TrustServerCertificate" => false
