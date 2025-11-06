@@ -19,12 +19,12 @@ if ($conn === false) {
 }
 
 $error = '';
-if (isset($_POST['name'], $_POST['password'])) {
-    $user = $_POST['name'];
+if (isset($_POST['username'], $_POST['password'])) {
+    $user = $_POST['username'];
     $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // 既存ユーザ確認
-    $tsqlCheck = "SELECT * FROM accounts WHERE name = ?";
+    $tsqlCheck = "SELECT * FROM accounts WHERE username = ?";
     $paramsCheck = [$user];
     $stmtCheck = sqlsrv_query($conn, $tsqlCheck, $paramsCheck);
 
@@ -36,7 +36,7 @@ if (isset($_POST['name'], $_POST['password'])) {
         $error = "name already exists";
     } else {
         // INSERT
-        $tsqlInsert = "INSERT INTO accounts (name, password_hash) VALUES (?, ?)";
+        $tsqlInsert = "INSERT INTO accounts (username, password_hash) VALUES (?, ?)";
         $paramsInsert = [$user, $pass];
         $stmtInsert = sqlsrv_query($conn, $tsqlInsert, $paramsInsert);
 
@@ -45,7 +45,7 @@ if (isset($_POST['name'], $_POST['password'])) {
         }
 
         // 自動ログイン
-        $_SESSION['name'] = $user;
+        $_SESSION['username'] = $user;
         header("Location: users_crud_auth.php");
         exit();
     }
