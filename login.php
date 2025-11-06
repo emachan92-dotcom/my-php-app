@@ -5,7 +5,7 @@ session_start();
 $serverName = "nakaema.database.windows.net"; // Azure SQL サーバー名
 $connectionOptions = [
     "Database" => "Azure-db-east",           // データベース名
-    "Uid"      => "webapp",                  // SQL 認証ユーザ
+    "Uid"      => "webapp@nakaema",                  // SQL 認証ユーザ
     "PWD"      => "Nakaema202510",           // パスワード
     "Encrypt"  => true,                       // 暗号化
     "TrustServerCertificate" => false
